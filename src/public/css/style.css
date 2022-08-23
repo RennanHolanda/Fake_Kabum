@@ -1,0 +1,300 @@
+/* Gerais */
+body{
+  font-family: 'Roboto', sans-serif;
+  /* background: rgb(0, 0, 0); */
+}
+ 
+.row {
+  margin: 0;
+}
+
+.container {
+  padding: 70px 0;
+}
+
+p, li{
+  color: #444;
+  font-size: 14px;
+}
+
+/* Barra de navegação */
+header, .navbar{
+  background-color: #000FFF;
+}
+
+#navbar-container{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#logo {
+  width: 75px;
+}
+
+.navbar-brand {
+  padding: 0;
+  color: #FFF;
+}
+
+.navbar-brand:hover{
+  color: #FFF;
+}
+
+#navbar-links a {
+  color: #FFF;
+}
+/* Unidades de medida que se adaptam de acordo com a fonte da página */
+.navbar-exped-lg .navbar-nav .navbar-link{
+  padding: 1rem .8rem;
+}
+
+.nav-item.active {
+  border-bottom: 3px solid #FFF;
+}
+
+/* slide */
+
+.main-btn {
+  background-color: #FFA500;
+  color: #FFF;
+  text-transform: uppercase;
+  width: 200px;
+  height: 60px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 3px solid transparent;
+  transition: .5s;
+}
+
+.main-btn:hover {
+  text-decoration: none;
+  color: #FFF;
+  background-color: transparent;
+  border-color: #FFA500;
+}
+
+.carousel-indicators .active {
+  background-color: #FFA500;
+}
+
+/* home */
+#area-body-home {
+  background: rgb(0, 0, 0);
+}
+
+#area-home {
+  background: #FFF;
+}
+#area-body-home {
+  background: rgb(0, 0, 0);
+}
+
+#area-home {
+  background: #FFF;
+}
+
+#title-home {
+  color: #FFF;
+  background: #ff5a01;
+  margin: 0px;
+  font-weight: bold;
+  height: 50px;
+}
+
+#area-title2 {
+  font-weight: bold;
+}
+
+#area-card-produtos2 {
+  text-align: center;
+  border-radius: 10px;
+  background: rgb(247, 247, 247);
+
+}
+
+
+/* cards */
+
+#titulo1 {
+  color:#fff;
+  text-align:left;
+  font-weight: bold;
+  font-size: 25px;
+  background: #ff5a01 ;
+}
+#area-cards {
+  background: #FFF;
+  text-align: center;
+}
+
+
+/* login */
+#login-area {
+  text-align: left;
+
+}
+
+#titulo {
+  text-align: left;
+ 
+}
+
+#area-login {
+  background: rgb(239, 238, 238);
+}
+
+#titulo-pagina {
+ color: #ff5a01;
+  text-align:center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.btn-primary {
+background-color: #ffc863;
+}
+
+#area-cards {
+  border-radius: 10px;
+}
+/* Detalhes */
+
+#img1 {
+ height: 40vh;
+}
+
+
+/* sobre */
+
+#area-sobre {
+  background: rgb(243, 242, 242);
+  color: rgb(20, 20, 20);
+}
+
+/* produtos */
+#area-card-produtos {
+  background: rgb(247, 247, 247);
+  border-radius: 10px;
+  border: 3px solid transparent;
+  transition: .5s;
+}
+
+/* carrinho */
+  #area-endereco {
+  background: rgb(247, 247, 247);
+  text-align: left;
+  border-radius: 10px;
+  }
+
+  #area-carrinho {
+  background: rgb(247, 247, 247);
+  }
+
+  #area-servico {
+    text-align: left;
+  }
+
+  #area-card-produtos {
+    text-align: left;
+    border-radius: 10px;
+    background: rgb(247, 247, 247);
+ 
+  }
+
+  #title-prdutos {
+    text-align: left;
+  }
+
+  /* cards */
+
+.card-body {
+  height: 200px;
+  width: 80%;
+}
+
+  .img {
+    height: 22vh;
+    width: 85%;
+    border-radius: 30px;
+    margin-left: 22px;
+    margin-top: 10px;
+  }
+
+/* footer */
+#contact-area {
+  text-align: center;
+  background: #5e69fc;
+ 
+}
+
+.contact-box {
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #FFF;
+}
+
+.contact-box i {
+  color: #FFF;
+  border: solid 1px #FFF;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.contact-box p {
+  font-size: 16px;
+  color: #FFF;
+}
+
+.contact-tile {
+  font-weight: bold;
+  color: #FFA500;
+}
+
+#msg-box p {
+  font-size: 22px;
+}
+
+#contact-form input[type="text"], #contact-form textarea {
+  margin-bottom: 15px;
+  border-radius: 0;
+}
+
+#contact-form .main-btn {
+  width: 120px;
+  height: 50px;
+}
+
+#contact-form .main-btn:hover {
+  color: #3EC1D5;
+}
+
+/* Copy */
+
+#copy-area {
+  background-color: #F1F1F1;
+}
+
+#copy-area .container {
+  padding: 10px 0;
+  text-align: center;
+}
+
+#copy-area .container p {
+  margin-bottom: 0;
+}
+
+#copy-area .container a {
+  font-weight: bold;
+  color: #444;
+}
+
+#copy-area .container a:hover {
+  text-decoration: none;
+  color: #3EC1D5;
+}
+
+

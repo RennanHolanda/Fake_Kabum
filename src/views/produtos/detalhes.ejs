@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/bf7e05c402.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <%- include("../partials/header.ejs")%>
+    <main>
+      <section id="area-detalhes">
+        <div id="area-detalhes-foto" class="container">
+          <div class="row">
+            <h4 id="area-title2"">Processador Intel Core i5-10400, Cache 12MB, 2.9GHz (4.3GHz Max Turbo), LGA 1200 - BX8070110400</h4>
+            <figure class="figure" id="">
+              <img id="img1" src="https://images.kabum.com.br/produtos/fotos/112990/processador-intel-core-i5-10400-cache-12mb-2-9ghz-lga-1200-bx8070110400_1589200167_m.jpg" class="img-fluid" alt="...">
+            </figure>
+          </div>
+        </div>
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-warning">OK</button>
+          </div>
+          <div class="col-auto">
+            <span id="passwordHelpInline" class="form-text">
+              <a class="nav-link active" aria-current="page"
+                href="https://buscacepinter.correios.com.br/app/endereco/index.php?t">Não lembro meu CEP</a>
+            </span>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+
+    <%- include('../partials/footer') %>
+      <!-- JavaScript Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+</body>
+
+
+</html>
+
+<!-- <div class="d-flex flex-column mt-3">
+                  <b>R$ 1.998,95</b>
+                  <span>Em até 10 x de <b>R$ 199,89</b> sem juros no cartão</span>
+                  <span>Ou em 1x no cartão com até <b>5 % OFF</b></span>
+                  <button>Ver mais opções de pagamento</button>
+                </div> -->
