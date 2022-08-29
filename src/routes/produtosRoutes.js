@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router()
-const produtos = require('../db');
+// const produtos = require('../db');
 const { v4: gerarId } = require("uuid");
 const ProdutosController = require('../controllers/ProdutosController');
 

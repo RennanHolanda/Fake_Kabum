@@ -297,4 +297,9 @@ background-color: #ffc863;
   color: #3EC1D5;
 }
 
+/* Error */
+
+.error {
+  color: red;
+}
 

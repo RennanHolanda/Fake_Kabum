@@ -2,15 +2,19 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('adresses', {
+    await queryInterface.createTable('requests', {
       id: {
         type: Sequelize.DataTypes.INTEGER(10),
         autoIncrement: true,
         allowNull: false,
         primaryKey: true,
       },
-      cep_one: {
-        type: Sequelize.DataTypes.STRING(10),
+      total_value: {
+        type: Sequelize.DataTypes.STRING(20),
+        allowNull: false
+      },
+      purchase_date: {
+        type: Sequelize.DataTypes.DATE,
         allowNull: false
       },
       user_id: {
@@ -26,11 +30,8 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('adresses');
+
+    await queryInterface.dropTable('requests');
 
   }
 };
-
-
-
-

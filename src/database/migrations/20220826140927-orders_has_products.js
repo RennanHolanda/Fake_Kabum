@@ -2,21 +2,19 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('adresses', {
-      id: {
-        type: Sequelize.DataTypes.INTEGER(10),
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true,
-      },
-      cep_one: {
-        type: Sequelize.DataTypes.STRING(10),
-        allowNull: false
-      },
-      user_id: {
+    await queryInterface.createTable('orders_has_products', {
+      request_id: {
         type: Sequelize.DataTypes.INTEGER(10),
         references: {
-          model: { tableName: 'users' },
+          model: { tableName: 'requests' },
+          key: 'id'
+        },
+        allowNull: false
+      },
+      product_id: {
+        type: Sequelize.DataTypes.INTEGER(10),
+        references: {
+          model: { tableName: 'products' },
           key: 'id'
         },
         allowNull: false
@@ -26,11 +24,8 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('adresses');
+
+    await queryInterface.dropTable('orders_has_products');
 
   }
 };
-
-
-
-

@@ -1,23 +1,73 @@
+const { User } = require("../models");
+const bcrypt = require("bcryptjs");
+
 const HomeController = {
-    index : (req, res) => { res.render("home/index") },
+    index: (req, res) => { res.render("./home/index") },
 
-    showAbout: (req, res) => { res.render('home/sobre') },
+    showAbout: (req, res) => { res.render('./home/sobre') },
 
-    login: (req, res) => {res.render('home/login')},
+    showLogin: (req, res) => { res.render('./home/login') },
 
-    postLogin : (req, res) => {res.render('home/login')},
+    login: async (req, res) => {
+        try {
+            const { email, password } = req.body;
 
-    showRegister: (req, res) => {res.render('home/cadastrar')},
+            const user = await User.findOne({ where: { email }});
 
-    register: (req, res) => {res.render('home/cadastrar')},
+            if (!user || !bcrypt.compareSync(password, user.password)) {
+                return res.render('./home/login', { error: "E-mail ou senha não existem" })
+            }
 
-    showEdit: (req, res) => {res.render('home/cadastro')},
+           req.session.user = {
+            id: user.id,
+            name: user.name,
+          }
 
-    update: (req, res) => {res.render('home/editar')},
+            return res.redirect("/");
 
-    showDetails: (req, res) => {res.render('produtos/detalhes')},
+        } catch (error) {
+            console.log(error);
+            return res.render("./home/login", { error: "Sistema indisponível" })
+        }
 
-    showPedidos: (req, res) => {res.render('produtos/pedidos')}
+    },
+
+    showRegister: (req, res) => { res.render('./home/cadastrar') },
+
+    store: async (req, res) => {
+        try {
+            const { name, lastname, email, password } = req.body;
+
+            const verifyUser = await User.findOne({ where: { email } });
+
+            if (verifyUser) {
+                return res.render("./home/cadastrar", { error: "Não foi possível realizar o cadastro" });
+            }
+
+            const hash = bcrypt.hashSync(password, 10);
+
+            const user = await User.create({
+                name,
+                lastname,
+                email,
+                password: hash
+            })
+            console.log(user)
+            return res.redirect("/");
+        } catch (error) {
+            console.log(error);
+            return res.render("./home/cadastrar", { error: "Sistema indisponível" })
+        }
+
+    },
+
+    showEdit: (req, res) => { res.render('./home/cadastro') },
+
+    update: (req, res) => { res.render('./home/editar') },
+
+    showDetails: (req, res) => { res.render('./produtos/detalhes') },
+
+    showPedidos: (req, res) => { res.render('./produtos/pedidos') }
 
 }
 
