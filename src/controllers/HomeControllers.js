@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Admin } = require("../models");
 const bcrypt = require("bcryptjs");
 
 const HomeController = {
@@ -6,22 +6,44 @@ const HomeController = {
 
     showAbout: (req, res) => { res.render('./home/sobre') },
 
-    showLogin: (req, res) => { res.render('./home/login') },
+    showLogin: (req, res) => { 
+        const user = req.query.user
+        if(user == "admin") return res.render('./adm/loginAdm')
+        res.render('./home/login') 
+    },
 
     login: async (req, res) => {
         try {
             const { email, password } = req.body;
+            const isAdmin = req.query.user
+            console.log(req.query);
+            let user 
+            if (isAdmin == "admin") {
 
-            const user = await User.findOne({ where: { email }});
+                 user = await Admin.findOne({ where: { email } });
+
+                if (!user || !bcrypt.compareSync(password, user.password)) {
+                    return res.render('./adm/loginAdm', { error: "E-mail ou senha não existem" })
+                }
+                req.session.user = {
+                    id: user.id,
+                    name: user.name,
+                    isAdmin
+                }
+    
+                return res.redirect("/");
+            }
+
+             user = await User.findOne({ where: { email } });
 
             if (!user || !bcrypt.compareSync(password, user.password)) {
                 return res.render('./home/login', { error: "E-mail ou senha não existem" })
             }
 
-           req.session.user = {
-            id: user.id,
-            name: user.name,
-          }
+            req.session.user = {
+                id: user.id,
+                name: user.name,
+            }
 
             return res.redirect("/");
 
@@ -67,7 +89,16 @@ const HomeController = {
 
     showDetails: (req, res) => { res.render('./produtos/detalhes') },
 
-    showPedidos: (req, res) => { res.render('./produtos/pedidos') }
+    showPedidos: (req, res) => { res.render('./produtos/pedidos') },
+
+    logout: (req, res) => {
+        if (req.session.user) {
+            req.session.destroy()
+            delete res.locals.user
+          }
+      
+          return res.redirect('/')
+    }
 
 }
 

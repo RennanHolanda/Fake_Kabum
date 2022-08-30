@@ -4,6 +4,7 @@ const app = express();
 const path = require('path');
 const session = require("express-session");
 const logger = require('morgan')
+const isLoggedIn = require("./src/middlewares/isLoggedIn")
 
 
 //Configurações do servidor
@@ -28,7 +29,7 @@ const homeRoutes = require('./src/routes/homeRoutes');
 const produtosRoutes = require('./src/routes/produtosRoutes');
 const carrinhoRoutes = require('./src/routes/carrinhoRoutes');
 
-
+app.use(isLoggedIn)
 //Rotas
 app.use(homeRoutes);
 app.use(produtosRoutes);

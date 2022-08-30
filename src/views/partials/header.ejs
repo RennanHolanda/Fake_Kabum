@@ -18,7 +18,11 @@
                     <a class="nav-item nav-link" id="services-menu" href="#">Serviços</a>
                     <a class="nav-item nav-link" id="team-menu" href="#">Time</a>
                     <a class="nav-item nav-link" id="portfolio-menu" href="../produtos/pedidos">Carrinho</a>
-                    <a class="nav-item nav-link" id="contact-menu" href="/login">Login</a>
+                    <% if(locals.user == undefined) { %>
+                        <a class="nav-item nav-link" id="contact-menu" href="/login">Login</a>
+                        <% }else { %>
+                            <a class="nav-item nav-link" id="contact-menu" href="/logout">Logout</a>
+                        <% } %>
                 </div>
             </div>
         </nav>
