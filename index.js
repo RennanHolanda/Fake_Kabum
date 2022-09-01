@@ -32,8 +32,8 @@ const carrinhoRoutes = require('./src/routes/carrinhoRoutes');
 app.use(isLoggedIn)
 //Rotas
 app.use(homeRoutes);
-app.use(produtosRoutes);
 app.use(carrinhoRoutes);
+app.use(produtosRoutes);
 
 
 app.listen(3000, () => console.log("O servidor está funcionando na porta 3000"));

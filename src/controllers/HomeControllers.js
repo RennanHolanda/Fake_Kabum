@@ -1,15 +1,26 @@
-const { User, Admin } = require("../models");
+const { User, Admin, Product} = require("../models");
 const bcrypt = require("bcryptjs");
 
 const HomeController = {
-    index: (req, res) => { res.render("./home/index") },
+    index: async(req, res) => {
+        const products = await Product.findAll()
+        res.render("./home/index", {products})
+    },
+    show: async(req, res) => {
+        const {id} = req.params;
+        const product = await Product.findByPk(id);
+        if(!product) {
+            return res.send(`Produto não encontrado`);
+        }
+        return res.render('./produtos/detalhes', {product});
+    },
 
     showAbout: (req, res) => { res.render('./home/sobre') },
 
-    showLogin: (req, res) => { 
+    showLogin: (req, res) => {
         const user = req.query.user
-        if(user == "admin") return res.render('./adm/loginAdm')
-        res.render('./home/login') 
+        if (user == "admin") return res.render('./adm/loginAdm')
+        res.render('./home/login')
     },
 
     login: async (req, res) => {
@@ -17,10 +28,10 @@ const HomeController = {
             const { email, password } = req.body;
             const isAdmin = req.query.user
             console.log(req.query);
-            let user 
+            let user
             if (isAdmin == "admin") {
 
-                 user = await Admin.findOne({ where: { email } });
+                user = await Admin.findOne({ where: { email } });
 
                 if (!user || !bcrypt.compareSync(password, user.password)) {
                     return res.render('./adm/loginAdm', { error: "E-mail ou senha não existem" })
@@ -30,11 +41,11 @@ const HomeController = {
                     name: user.name,
                     isAdmin
                 }
-    
+
                 return res.redirect("/");
             }
 
-             user = await User.findOne({ where: { email } });
+            user = await User.findOne({ where: { email } });
 
             if (!user || !bcrypt.compareSync(password, user.password)) {
                 return res.render('./home/login', { error: "E-mail ou senha não existem" })
@@ -80,10 +91,9 @@ const HomeController = {
             console.log(error);
             return res.render("./home/cadastrar", { error: "Sistema indisponível" })
         }
-
     },
 
-    showEdit: (req, res) => { res.render('./home/cadastro') },
+    showEdit: (req, res) => { res.render('./home/editar') },
 
     update: (req, res) => { res.render('./home/editar') },
 
@@ -95,9 +105,9 @@ const HomeController = {
         if (req.session.user) {
             req.session.destroy()
             delete res.locals.user
-          }
-      
-          return res.redirect('/')
+        }
+
+        return res.redirect('/')
     }
 
 }

@@ -22,76 +22,51 @@
   <%- include("../partials/header.ejs")%>
     <section id="area-login">
       <main>
-        <section id="area-cards" class="col-md-8 mx-auto m-0">
+        <br>
+        <section id="area-cards" class="col-md-6 mx-auto m-0">
           <div id="area-cadastrar">
             <div class="container">
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-10">
                   <h4 id="titulo-pagina">Cadastro</h4>
                 </div>
                 <div id="login-area">
                   <div class="container">
                     <div class="row">
-                      <div>
-                        <form class="row g-3">
-                          <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Email</label>
-                            <input type="email" placeholder="name@example.com" class="form-control" id="inputEmail4">
-                          </div>
-                          <div class="col-md-3">
-                            <label for="inputPassword4" class="form-label">Senha</label>
-                            <input type="password" placeholder="***********" class="form-control" id="inputPassword4">
-                          </div>
-                          <div class="col-6">
-                            <label for="inputAddress" class="form-label">Endereço</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Avenida...,1234">
-                          </div>
-
-                          <div class="col-md-3">
-                            <label for="inputCity" class="form-label">Cidade</label>
-                            <input type="text" class="form-control" id="inputCity">
-                          </div>
-                          <div class="col-md-4">
-                            <label for="inputState" class="form-label">Estado</label>
-                            <select id="inputState" class="form-select">
-                              <option selected>Escolher...</option>
-                              <option>...</option>
-                            </select>
-                          </div>
-                          <div class="col-md-2">
-                            <label for="inputZip" class="form-label">País</label>
-                            <input type="text" class="form-control" id="inputZip">
-                          </div>
-
-                          <!-- <div class="col-12">
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                                        <label class="form-check-label" for="gridCheck">
-                                          Check me out
-                                        </label>
-                                      </div>
-                                    </div> -->
-                          <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Cadastrar</button>
-                          </div>
-                        </form>
-                      </div>
+                      <form class="row g-3" action="/home/cadastrar" method="POST">
+                        <% if(typeof error !== "undefined") { %>
+                          <h3 class="error"><%= error %></h3>
+                        <% } %>
+                        <div class="col-md-12">
+                          <label for="validationCustom01" class="form-label">Nome</label>
+                          <input type="text" name="name" class="form-control" id="validationCustom01" required>
+                          <label for="validationCustom02" class="form-label">Sobrenome</label>
+                          <input type="text" name="lastname" class="form-control" id="validationCustom02" value="" required>
+                          <label for="inputEmail4" class="form-label">Email</label>
+                          <input type="email" name="email" placeholder="name@example.com" class="form-control" id="inputEmail4">
+                        </div>
+                        <div class="col-md-6">
+                          <label for="inputPassword4" class="form-label">Senha</label>
+                          <input type="password" name="password" placeholder="***********" class="form-control" id="inputPassword4">
+                        </div>
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                      </form>
+                     
                     </div>
                   </div>
                 </div>
               </div>
-            </section>
-       </main>
+        </section>
+        <br>
+      </main>
     </section>
-
-
     <%- include('../partials/footer') %>
       <!-- JavaScript Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
-
 </body>
-
 
 </html>

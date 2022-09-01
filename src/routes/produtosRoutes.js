@@ -8,7 +8,7 @@ router.use(verifyIsAdmin);
 
 router.get("/adm/produtos",ProdutosController.index);
 router.get("/adm/produtos/cadastro",ProdutosController.showRegister);
-router.post("/adm/produtos",ProdutosController.register);
+router.post("/adm/produtos/cadastro",ProdutosController.register);
 router.get("/adm/produtos/:id/editar",ProdutosController.showEdit);
 router.put("/adm/produtos/:id",ProdutosController.update);
 router.delete("/adm/produtos/:id",ProdutosController.delete);

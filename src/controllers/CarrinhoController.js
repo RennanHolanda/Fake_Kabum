@@ -1,9 +1,9 @@
 const servicosController ={
     index:(req, res) => {
-        res.render("produtos/lista")
+        res.render("./produtos/lista")
     },
     show:(req, res) => {
-        res.render("produtos/detalhes")
+        res.render("./produtos/detalhes")
     },
 };
 

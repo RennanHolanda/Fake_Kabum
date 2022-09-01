@@ -11,8 +11,8 @@ router.get("/home/cadastrar", HomeController.showRegister);
 router.post("/home/cadastrar", HomeController.store);
 router.get("/home/editar/:id/editar", HomeController.showEdit);
 router.put("/editar/:id", HomeController.update);
-router.get("/produtos/detalhes", HomeController.showDetails);
-router.get("/produtos/pedidos",verifyAuth, HomeController.showPedidos);
+router.get('/produtos/:id/detalhes', HomeController.show)
+router.get("/produtos/pedidos", HomeController.showPedidos);
 router.get("/logout", HomeController.logout);
 
 

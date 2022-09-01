@@ -9,8 +9,12 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
       },
-      description: {
+      title: {
         type: Sequelize.DataTypes.STRING(20),
+        allowNull: false
+      },
+      description: {
+        type: Sequelize.DataTypes.STRING(250),
         allowNull: false
       },
       value: {
