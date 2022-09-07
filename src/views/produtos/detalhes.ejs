@@ -22,7 +22,7 @@
   <%- include("../partials/header.ejs")%>
 
     <main class="my-5 pt-5">
-      
+
       <section class="d-flex justify-content-evenly container">
         <div>
           <img src="<%= product.image %>" height="350px" class="img" alt="...">
@@ -36,9 +36,8 @@
               </h4>
               <span>À vista no PIX <span>com até <b>5% OFF</b></span></span>
             </div>
-            <button class="btn btn-success">Comprar</button>
+            <a href="/produtos/<%= product.id %>/adicionar/carrinho" class="btn btn-success">Comprar</a>
           </div>
-
           <div class="d-flex flex-column mt-3">
             <span>Em até 10 x de sem juros no cartão</span>
             <span>Ou em 1x no cartão com até <b>5 % OFF</b></span>
@@ -49,7 +48,7 @@
           </div>
         </div>
       </section>
-      
+
 
     </main>
 

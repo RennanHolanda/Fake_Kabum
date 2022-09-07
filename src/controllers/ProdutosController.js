@@ -30,14 +30,50 @@ const ProdutosController = {
             }
        
     },
-    showEdit: (req, res) => {
-        res.render('adm/editar')
+    showEdit: async(req, res) => {
+        const {id} = req.params;
+        const product = await Product.findByPk(id);
+        if(!product) {
+            return res.send(`Produto não encontrado`);
+        }
+        return res.render('./adm/editar', {product});
     },
-    update: (req, res) => {
-        res.render('adm/editar')
+    update: async(req, res) => {
+        try {
+            const { title, description, value, image, category_id } = req.body;
+            const {id} = req.params;
+                const product = await Product.update({ 
+                title,
+                description,
+                value,
+                image,
+                category_id
+            },{
+               where:{id} 
+            }
+            )
+            console.log(product)
+            return res.redirect("/adm/produtos");
+        } catch (error) {
+            console.log(error);
+            return res.render("./adm/lista", { error: "Sistema indisponível" })
+        }
     },
-    delete: (req, res) => {
-        res.render('adm/lista')
+    delete: async(req, res) => {
+        try {
+            const {id} = req.params;
+
+        await Product.destroy({
+            where: {
+              id
+            }
+          });
+          return res.redirect("/adm/produtos");
+
+        } catch (error) {
+            console.log(error);
+            return res.render("./adm/lista", { error: "Sistema indisponível" })
+        } 
     }
 }
 

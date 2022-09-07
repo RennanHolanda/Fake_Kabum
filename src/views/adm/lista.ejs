@@ -22,44 +22,44 @@
   <%- include("../partials/header.ejs")%>
     <main>
       <br>
-      <section id="area-cards" class="col-md-12 mx-auto m-0">
-        <table class="table table-dark table-striped table-bordered ">
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Imagem</th>
-              <th scope="col">Título</th>
-              <th scope="col">Descrição</th>
-              <th scope="col">Valor</th>
-              <th scope="col">Categoria</th>
-              <th scope="col">Ações</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <% products.forEach(product=> { %>
+      <section class="container">
+        <h1>Produtos</h1>
+            <a href="/adm/produtos/cadastro" class="btn btn-primary mb-5" >Cadastrar</a>
+        <section id="area-cards" class="col-md-12 mx-auto m-0">
+          <table class="table table-dark table-striped table-bordered ">
+            <thead>
               <tr>
-                <td><%= product.id %></td>
-                <td><img src="<%= product.image %>" alt=""></td>
-                <td><%= product.title %></td>
-                <td><%= product.description %></td>
-                <td><%= product.value %></td>
-                <td><%= product.category_id %></td>
-                <td>
-                  <button type="button" class="btn btn-primary">Abrir</button>
-                  <button type="button" class="btn btn-secondary">Editar</button>
-                  <button type="button" class="btn btn-danger">Excluir</button>
-                </td>
-              </tr>
-             <% }) %>
-
-          </tbody>
-        </table>
+                <th scope="col">Id</th>
+                <th scope="col">Imagem</th>
+                <th scope="col">Título</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+              <% products.forEach(product=> { %>
+                <tr>
+                  <td><%= product.id %></td>
+                  <td><img src="<%= product.image %>" alt=""></td>
+                  <td><%= product.title %></td>
+                  <td><%= product.description %></td>
+                  <td><%= product.value %></td>
+                  <td><%= product.category_id %></td>
+                  <td>
+                    <a href="/adm/produtos/<%= product.id %>/editar" type="button" class="btn btn-secondary">Editar</a>
+                    <form action="/adm/produtos/<%= product.id %>?_method=DELETE" method="POST">
+                      <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
+                  </td>
+                </tr>
+               <% }) %>
+              </tbody>
+          </table>
+        </section>
       </section>
-
       <br>
-
-
 
     </main>
     <%- include('../partials/footer') %>

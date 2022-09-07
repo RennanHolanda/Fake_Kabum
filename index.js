@@ -5,7 +5,7 @@ const path = require('path');
 const session = require("express-session");
 const logger = require('morgan')
 const isLoggedIn = require("./src/middlewares/isLoggedIn")
-
+const methodOverride = require('method-override')
 
 //Configurações do servidor
 app.set('view engine', 'ejs');
@@ -23,6 +23,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.resolve('public'))); 
+app.use(methodOverride('_method'))
 
 //Importações das rotas
 const homeRoutes = require('./src/routes/homeRoutes');

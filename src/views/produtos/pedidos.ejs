@@ -21,14 +21,13 @@
 <body id="area-carrinho">
   <%- include("../partials/header.ejs")%>
     <main>
-    <br>
-    <section id="area-cards" class="col-md-8 mx-auto m-0">
+      <br>
+      <section id="area-cards" class="col-md-8 mx-auto m-0">
         <div class="container">
           <div class="row">
             <section id="area-endereco" class="col-md-12">
-              
-              <h4 > <i class="fas fa-map-marker-alt"></i> SELECIONE O ENDEREÇO</h4>
-               <h5>Endereço Principal</h5>
+              <h4> <i class="fas fa-map-marker-alt"></i> SELECIONE O ENDEREÇO</h4>
+              <h5>Endereço Principal</h5>
               <p>Av. Otacílio de Azevedo</p>
               <p>Número : 1000</p>
               <p>CEP: 5200-0000 - Recife-Pe</p>
@@ -36,107 +35,102 @@
               <button type="button" class="btn btn-danger">Editar</button>
             </section>
           </div>
-      </div>
-        <br>
-        <div>
         </div>
-        <div class="container">
-          <div class="row">
-            <div id="area-cards" class="col-md-6">
-              <h3>Produto e Frete</h3>
-              <div class="row row-cols-1 row-cols-md-3 g-5">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                  <div class="col">
+        <br>
+        <h3>Produto e Frete</h3>
+        <section id="area-cards" class="col-md-12 mx-auto m-0">
+          <div class="row row-cols-1 row-cols-md-3 g-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <% products.forEach(product=> { %>
+                <div class="col">
+                  <div id="area-card-produtos" class="card">
                     <div id="area-card-produtos" class="card">
-                      <img src="..." class="card-img-top" alt="...">
+                      <a href="/produtos/<%= product.id %>/pedidoId">
+                        <img id="img-card" src="<%= product.image %>" class="img" alt="..."></a>
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                          additional content. This content is a little bit longer.</p>
-                         <br>
-                          <button type="button" class="btn btn-danger">Remover</button>
+                        <p class="card-text">
+                          <%= product.title %>
+                        </p>
+                        <h5 class="card-title">
+                          <span>R$
+                            <%= product.value %>
+                          </span>
+                        </h5>
+                        <a href="/produtos/pedidos/<%= product.id %>/remover" class="btn btn-danger">Remover</a>
                       </div>
                     </div>
-                  </div>
-                  <div class="col">
-                    <div id="area-card-produtos" class="card">
-                      <img src="..." class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                          additional content. This content is a little bit longer.</p>
-                          <br>
-                          <button type="button" class="btn btn-danger">Remover</button>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
+                <% }) %>
+            </div>
+          </div>
+          <br>
+          <form action="/produtos/carrinho/finalizar" method="POST">
+            <button type="submit" class="btn btn-success">Finalizar Compra</button>
+          </form>
+        </section>
+        <br>
+        <div class="container">
+          <div class="row">
+            <div id="area-servico" class="col-md-12">
+              <h4>SERVIÇOS</h4>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Sem garantia
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Garantia estendida + 12 meses
+                </label>
               </div>
             </div>
           </div>
-
         </div>
-  
-      <div class="container">
-        <div class="row">
-          <section id="area-servico" class="col-md-12">
-            <h4>SERVIÇOS</h4>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label" for="flexRadioDefault1">
-                Sem garantia
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-              <label class="form-check-label" for="flexRadioDefault2">
-                Garantia estendida + 12 meses
-              </label>
-            </div>
-          </section>
-        </div>
-      </div>
-      <div class="container">
+        <div class="container">
           <div class="row">
             <section id="area-endereco" class="col-md-12">
               <h4>FRETE</h4>
-                <p>Garantia estendida</p>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                  <label class="form-check-label" for="exampleRadios1">
-                    <span>GLF</span> - até 8 dias úteis
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                  <label class="form-check-label" for="exampleRadios2">
-                    <span>Dominalog</span> - até 12 dias úteis
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                  <label class="form-check-label" for="exampleRadios2">
-                    <span>Azul</span> - até 3 dias úteis
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                  <label class="form-check-label" for="exampleRadios2">
-                    <span>Sedex</span> - até 6 dias úteis
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                  <label class="form-check-label" for="exampleRadios2">
-                    <span>TMA</span> - até 13 dias úteis
-                  </label>
-                </div>
-                </section>
-              </section>
+              <p>Garantia estendida</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                  checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  <span>GLF</span> - até 8 dias úteis
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  <span>Dominalog</span> - até 12 dias úteis
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  <span>Azul</span> - até 3 dias úteis
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  <span>Sedex</span> - até 6 dias úteis
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  <span>TMA</span> - até 13 dias úteis
+                </label>
+              </div>
+            </section>
           </div>
         </div>
-
-        </main>
+      </section>
+    </main>
     <%- include('../partials/footer') %>
       <!-- JavaScript Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

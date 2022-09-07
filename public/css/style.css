@@ -125,6 +125,8 @@ header, .navbar{
 #area-cards {
   background: #FFF;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 
@@ -302,4 +304,6 @@ background-color: #ffc863;
 .error {
   color: red;
 }
+
+
 

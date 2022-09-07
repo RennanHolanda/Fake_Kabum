@@ -1,4 +1,4 @@
-const { User, Admin, Product} = require("../models");
+const { User, Admin, Product, Category} = require("../models");
 const bcrypt = require("bcryptjs");
 
 const HomeController = {
@@ -42,7 +42,7 @@ const HomeController = {
                     isAdmin
                 }
 
-                return res.redirect("/");
+                return res.redirect("/adm/produtos");
             }
 
             user = await User.findOne({ where: { email } });
@@ -54,7 +54,8 @@ const HomeController = {
             req.session.user = {
                 id: user.id,
                 name: user.name,
-            }
+                cart:[]           
+             }
 
             return res.redirect("/");
 
@@ -93,13 +94,41 @@ const HomeController = {
         }
     },
 
-    showEdit: (req, res) => { res.render('./home/editar') },
+    showEdit: async (req, res) => {
+        const {id} = req.params;
+        const user = await User.findByPk(id);
+        if(!user) {
+            return res.send(`Usuário não encontrado`);
+        }
+        return res.render('./home/editar', {user});
+        },
 
-    update: (req, res) => { res.render('./home/editar') },
+        update: async (req, res) => {
+            try {
+                const { name, lastname, email, password } = req.body;
+
+                const {id} = req.params;
+    
+                const userOld = await User.findByPk(id)
+                const hash = password ? bcrypt.hashSync(password, 10):userOld.password
+                const user = await User.update ({
+                    name,
+                    lastname,
+                    email,
+                    password: hash
+                },{
+                    where: {id},
+                }
+                )
+                console.log(user)
+                return res.redirect("/");
+            } catch (error) {
+                console.log(error);
+                return res.render("./home/cadastrar", { error: "Sistema indisponível" })
+            }
+        },
 
     showDetails: (req, res) => { res.render('./produtos/detalhes') },
-
-    showPedidos: (req, res) => { res.render('./produtos/pedidos') },
 
     logout: (req, res) => {
         if (req.session.user) {
@@ -108,6 +137,15 @@ const HomeController = {
         }
 
         return res.redirect('/')
+    },
+    showAllProductsCategory: async (req, res) => {
+        const { id } = req.params;
+        const products = await Product.findAll({
+                where: {
+                    category_id: id
+                }
+        })
+        return res.render('./home/index', {products})
     }
 
 }
