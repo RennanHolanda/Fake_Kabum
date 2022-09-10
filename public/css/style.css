@@ -127,23 +127,54 @@ header, .navbar{
   text-align: center;
   display: flex;
   flex-wrap: wrap;
+  
+  font-weight: bold;
+  max-width: 250vw;
+  }
+  #img-card {
+    max-height: 150px;
+    max-width: 150px;
+  }
+ #text-card {
+margin: 0;
+padding: 0;
+height: 200px;
+width: 150px;
+ }
+
+ #card-value {
+  font-size: 15px;
+ }
+
+ .btn {
+  font-size: 10px;
+  border-bottom: 10px;
+ }
+
+ #card-text {
+  text-align: center;
+  height: 70px;
+  margin-bottom: 10px;
+ }
+ #img-card {
+  height: 22vh;
+  width: 85%;
+  border-radius: 30px;
+  margin-left: 22px;
+  margin-top: 10px;
 }
 
 
 /* login */
 #login-area {
   text-align: left;
-
-}
-
-#titulo {
-  text-align: left;
- 
-}
-
-#area-login {
   background: rgb(239, 238, 238);
+  border-radius: 0.5rem;
 }
+
+/* #titulo {
+  text-align: center;
+ } */
 
 #titulo-pagina {
  color: #ff5a01;
@@ -207,21 +238,7 @@ background-color: #ffc863;
     text-align: left;
   }
 
-  /* cards */
-
-.card-body {
-  height: 200px;
-  width: 80%;
-}
-
-  #img-card {
-    height: 22vh;
-    width: 85%;
-    border-radius: 30px;
-    margin-left: 22px;
-    margin-top: 10px;
-  }
-
+ 
 /* footer */
 #contact-area {
   text-align: center;

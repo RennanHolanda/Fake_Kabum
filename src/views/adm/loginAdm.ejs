@@ -20,49 +20,52 @@
 
 <body>
     <%- include("../partials/header.ejs")%>
-        <section id="area-login">
-            <br><br>
-            <main>
-                <section id="area-cards" class="col-md-4 mx-auto m-0">
+        <main>
+            <section>
+                <br>
+                <section class="col-md-4 mx-auto m-0">
                     <div id="titulo" class="col-md-12">
-                        <br><br>
+                        <br>
                         <h3 id="titulo-pagina">Login</h3>
                     </div>
                     <div id="login-area">
-                        <div class="container">
+                        <div id="area-login" class="container">
                             <div class="row">
                                 <div class="col-md-10">
-                                    <% if(typeof error != "undefined") { %>
-                                        <h3 class="error"><%= error %></h3>
-                                   <% } %>
-                                    <form action="/login?user=admin" method="POST">
-                                        <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">E-mail</label>
-                                            <input type="email" name="email" class="form-control"
-                                                placeholder="name@example.com" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp">
-                                            <div id="emailHelp" class="form-text">Nunca compartilharemos seu e-mail com
-                                                mais
-                                                ninguém.</div>
-                                            <br>
-                                            <div class="mb-3">
-                                                <label for="exampleInputPassword1" placeholder=""
-                                                    class="form-label">Senha</label>
-                                                <input type="password" name="password" class="form-control"
-                                                    placeholder="********" id="exampleInputPassword1">
-                                                <br>
-                                                <button type="submit" class="btn btn-primary">Entrar</button>
-                                                <a class="btn btn-primary" href="../home/cadastrar"
-                                                    role="button">Cadastrar</a>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    <% if(typeof error !="undefined" ) { %>
+                                        <h3 class="error">
+                                            <%= error %>
+                                        </h3>
+                                        <% } %>
+                                            <form action="/login?user=admin" method="POST">
+                                                <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">E-mail</label>
+                                                    <input type="email" name="email" class="form-control"
+                                                        placeholder="name@example.com" id="exampleInputEmail1"
+                                                        aria-describedby="emailHelp">
+                                                    <div id="emailHelp" class="form-text">Nunca compartilharemos seu
+                                                        e-mail com
+                                                        mais
+                                                        ninguém.</div>
+                                                    <br>
+                                                    <div class="mb-3">
+                                                        <label for="exampleInputPassword1" placeholder=""
+                                                            class="form-label">Senha</label>
+                                                        <input type="password" name="password" class="form-control"
+                                                            placeholder="********" id="exampleInputPassword1">
+                                                        <br>
+                                                        <button type="submit" class="btn btn-primary">Entrar</button>
+                                                        <a class="btn btn-primary" href="../home/cadastrar"
+                                                            role="button">Cadastrar</a>
+                                                    </div>
+                                                </div>
+                                            </form>
                                 </div>
                             </div>
                         </div>
                 </section>
-            </main>
-            <br><br>
+        </main>
+        <br><br>
         </section>
         <%- include('../partials/footer') %>
 </body>

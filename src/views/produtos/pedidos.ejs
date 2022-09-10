@@ -22,8 +22,9 @@
   <%- include("../partials/header.ejs")%>
     <main>
       <br>
-      <section id="area-cards" class="col-md-8 mx-auto m-0">
+      <section class="col-md-10 mx-auto m-0" id="area-home">
         <div class="container">
+          <h3>Produto e Frete</h3>
           <div class="row">
             <section id="area-endereco" class="col-md-12">
               <h4> <i class="fas fa-map-marker-alt"></i> SELECIONE O ENDEREÇO</h4>
@@ -36,41 +37,45 @@
             </section>
           </div>
         </div>
-        <br>
-        <h3>Produto e Frete</h3>
-        <section id="area-cards" class="col-md-12 mx-auto m-0">
-          <div class="row row-cols-1 row-cols-md-3 g-5">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-              <% products.forEach(product=> { %>
-                <div class="col">
-                  <div id="area-card-produtos" class="card">
-                    <div id="area-card-produtos" class="card">
-                      <a href="/produtos/<%= product.id %>/pedidoId">
-                        <img id="img-card" src="<%= product.image %>" class="img" alt="..."></a>
-                      <div class="card-body">
-                        <p class="card-text">
-                          <%= product.title %>
-                        </p>
-                        <h5 class="card-title">
-                          <span>R$
-                            <%= product.value %>
-                          </span>
-                        </h5>
-                        <a href="/produtos/pedidos/<%= product.id %>/remover" class="btn btn-danger">Remover</a>
+        <div class="container">
+          <div class="row">
+            <section id="area-cards" class="col-md-12 mx-auto m-0">
+              <div class="row row-cols-1 row-cols-md-3 g-5">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                  <% products.forEach(product=> { %>
+                    <div class="col mb-2" style="min-width:230px;max-width:230px;">
+                      <div id="area-card-produtos" class="card">
+                        <div id="area-card-produtos" class="card">
+                          <a href="/produtos/<%= product.id %>/pedidoId">
+                            <img id="img-card" src="<%= product.image %>" class="img" alt="..."></a>
+                          <div class="card-body">
+                            <div id="card-text">
+                              <p id="text-card" class="card-text">
+                                <%= product.title %>
+                              </p>
+                            </div>
+                            <h5 id="card-value" class="card-title">
+                              <span>R$
+                                <%= product.value %>
+                              </span>
+                            </h5>
+                            <a href="/produtos/pedidos/<%= product.id %>/remover" class="btn btn-danger">Remover</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
-
-                  </div>
+                    <% }) %>
                 </div>
-                <% }) %>
-            </div>
+              </div>
+            </section>
           </div>
-          <br>
+         
+        </div>
+        <div class="container">
           <form action="/produtos/carrinho/finalizar" method="POST">
             <button type="submit" class="btn btn-success">Finalizar Compra</button>
           </form>
-        </section>
-        <br>
+        </div>   
         <div class="container">
           <div class="row">
             <div id="area-servico" class="col-md-12">

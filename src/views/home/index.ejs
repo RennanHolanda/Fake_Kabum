@@ -26,9 +26,9 @@
         <div class="carousel-item active">
           <img src="https://themes.kabum.com.br/conteudo/layout/2739/banner_img.jpg" class="d-block w-100"
             alt="PC GAMER">
-          <div class="carousel-caption d-none d-md-block">
+          <!-- <div class="carousel-caption d-none d-md-block">
             <a href="/produtos/lista" class="main-btn">Ver produtos</a>
-          </div>
+          </div> -->
         </div>
       </div>
       <h4 id="title-home" class="col-md-10 mx-auto m-0">TECH SEASON</h4>
@@ -43,14 +43,14 @@
                     <a href="/produtos/<%= product.id %>/detalhes">
                       <img id="img-card" src="<%= product.image %>" class="img" alt="..."></a>
                     <div class="card-body">
-                      <div>
-                        <p class="card-text">
+                      <div id="card-text">
+                        <p id="text-card" class="card-text">
                           <%= product.title %>
                         </p>
                       </div>
                       <br>
                       <div>
-                        <h5 class="card-title">
+                        <h5 id="card-value" class="card-title">
                           <span>R$
                             <%= product.value %>
                           </span>
@@ -58,7 +58,6 @@
                       </div>
                      <div>
                        <a href="/produtos/<%= product.id %>/adicionar/carrinho" class="btn btn-primary">Comprar</a>
-
                      </div>
                     </div>
                   </div>
@@ -90,27 +89,20 @@
         </div>
         <br>
         <h4 id="area-title2"><i class="fas fa-star"></i> DESTAQUE NINJA</h4>
-        <section id="area-cards" class="col-md-12 mx-auto m-0">
+        <!-- <section id="area-cards" class="col-md-12 mx-auto m-0">
           <div class="row row-cols-1 row-cols-md-3 g-5">
             <div class="row row-cols-1 row-cols-md-3 g-4">
             </div>
           </div>
-        </section>
-        <br>
-        <section id="area-cards" class="col-md-12 mx-auto m-0">
-          <div class="row row-cols-1 row-cols-md-3 g-5">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-
-            </div>
-        </section>
+        </section> -->
         <br>
         <section id="area-cards" class="col-md-12 mx-auto m-0">
           <div class="carousel-item active">
             <img src="https://themes.kabum.com.br/conteudo/ads/splashline/841.jpg" class="d-block w-100" alt="PC GAMER"
               width="32%">
-            <div class="carousel-caption d-none d-md-block">
+            <!-- <div class="carousel-caption d-none d-md-block">
               <a href="produtos/lista" class="main-btn">Ver produtos</a>
-            </div>
+            </div> -->
           </div>
         </section>
         <br>
@@ -119,53 +111,53 @@
         <section id="area-cards" class="col-md-12 mx-auto m-0">
           <div class="row row-cols-1 row-cols-md-3 g-5">
             <div class="row row-cols-1 row-cols-md-3 g-4">
-              <div class="col">
+              <div class="col mb-2" style="min-width:230px;max-width:230px;">
                 <div id="area-card-produtos2" class="card">
                   <h5 class="card-title">HARDWARE</h5>
                   <a href="/produtos/categoria/1">
-                    <img src="https://static.kabum.com.br/conteudo/categorias/HARDWARE_1648493892.png" class="card"
+                    <img src="https://static.kabum.com.br/conteudo/categorias/HARDWARE_1648493892.png" class="col mb-2"
                       alt="...">
                   </a>
                 </div>
               </div>
-              <div class="col">
+              <div class="col mb-2" style="min-width:230px;max-width:230px;">
                 <div id="area-card-produtos2" class="card">
                   <h5 class="card-title">PERIFÉRICOS</h5>
                   <a href="/produtos/categoria/2">
-                    <img src="https://static.kabum.com.br/conteudo/categorias/PERIFERICOS.png" class="card" alt="...">
+                    <img src="https://static.kabum.com.br/conteudo/categorias/PERIFERICOS.png" class="col mb-2" alt="...">
                   </a>
                 </div>
               </div>
-              <div class="col">
+              <div class="col mb-2" style="min-width:230px;max-width:230px;">
                 <div id="area-card-produtos2" class="card">
                   <h5 class="card-title">GAMES</h5>
                   <a href="/produtos/categoria/3">
-                    <img src="https://static.kabum.com.br/conteudo/categorias/GAMER.png" class="card" alt="...">
+                    <img src="https://static.kabum.com.br/conteudo/categorias/GAMER.png" class="col mb-2" alt="...">
                   </a>
                 </div>
               </div>
-              <div class="col">
+              <div class="col mb-2" style="min-width:230px;max-width:230px;">
                 <div id="area-card-produtos2" class="card">
                   <h5 class="card-title">COMPUTADORES</h5>
                   <a href="/produtos/categoria/4">
-                    <img src="https://static.kabum.com.br/conteudo/categorias/COMPUTADORES.png" class="card" alt="...">
+                    <img src="https://static.kabum.com.br/conteudo/categorias/COMPUTADORES.png" class="col mb-2" alt="...">
                   </a>
                 </div>
               </div>
-              <div class="col">
+              <div class="col mb-2" style="min-width:230px;max-width:230px;">
                 <div id="area-card-produtos2" class="card">
                   <h5 class="card-title">TV</h5>
                   <a href="/produtos/categoria/5">
-                    <img src="https://static.kabum.com.br/conteudo/categorias/TV_1645045665.png" class="card" alt="...">
+                    <img src="https://static.kabum.com.br/conteudo/categorias/TV_1645045665.png" class="col mb-2" alt="...">
                   </a>
                 </div>
               </div>
-              <div class="col">
+              <div class="col mb-2" style="min-width:230px;max-width:230px;">
                 <div id="area-card-produtos2" class="card">
                   <h5 class="card-title">CELULARES</h5>
                   <a href="/produtos/categoria/6">
                     <img src="https://static.kabum.com.br/conteudo/categorias/CELULAR-SMARTPHONE_1645045581.png"
-                      class="card" alt="...">
+                      class="col mb-2" alt="...">
                   </a>
                 </div>
               </div>
@@ -174,60 +166,60 @@
         <section id="area-cards" class="col-md-12 mx-auto m-0">
           <div class="row row-cols-1 row-cols-md-3 g-5">
             <div class="row row-cols-1 row-cols-md-3 g-4">
-              <div class="col">
+              <div class="col mb-2" style="min-width:230px;max-width:230px;">
                 <div id="area-card-produtos2" class="card">
                   <h5 class="card-title">AUTOMOTIVO</h5>
                   <a href="/produtos/categoria/7">
-                    <img src="https://static.kabum.com.br/conteudo/categorias/AUTOMOTIVO.png" class="card" alt="...">
+                    <img src="https://static.kabum.com.br/conteudo/categorias/AUTOMOTIVO.png" class="col mb-2" alt="...">
                   </a>
                 </div>
               </div>
-              <div class="col">
+              <div class="col mb-2" style="min-width:230px;max-width:230px;">
                 <div id="area-card-produtos2" class="card">
                   <h5 class="card-title">CAMERAS E DRONES</h5>
                   <a href="/produtos/categoria/8">
                     <img src="https://static.kabum.com.br/conteudo/categorias/CAMERAS-E-DRONES_1659439533.png"
-                      class="card" alt="...">
+                      class="col mb-2" alt="...">
                   </a>
                 </div>
               </div>
-              <div class="col">
+              <div class="col mb-2" style="min-width:230px;max-width:230px;">
                 <div id="area-card-produtos2" class="card">
                   <h5 class="card-title">ESPAÇO GAMER</h5>
                   <a href="/produtos/categoria/9">
-                    <img src="https://static.kabum.com.br/conteudo/categorias/ESPACO-GAMER_1658426219.png" class="card"
+                    <img src="https://static.kabum.com.br/conteudo/categorias/ESPACO-GAMER_1658426219.png" class="col mb-2"
                       alt="...">
                   </a>
                 </div>
               </div>
-              <div class="col">
+              <div class="col mb-2" style="min-width:230px;max-width:230px;">
                 <div id="area-card-produtos2" class="card">
                   <h5 class="card-title">PROJETORES</h5>
                   <a href="/produtos/categoria/10">
-                    <img src="https://static.kabum.com.br/conteudo/categorias/PROJETORES.png" class="card" alt="...">
+                    <img src="https://static.kabum.com.br/conteudo/categorias/PROJETORES.png" class="col mb-2" alt="...">
                   </a>
                 </div>
               </div>
-              <div class="col">
+              <div class="col mb-2" style="min-width:230px;max-width:230px;">
                 <div id="area-card-produtos2" class="card">
                   <h5 class="card-title">ÁUDIO</h5>
                   <a href="/produtos/categoria/11">
-                    <img src="https://static.kabum.com.br/conteudo/categorias/AUDIO.png" class="card" alt="...">
+                    <img src="https://static.kabum.com.br/conteudo/categorias/AUDIO.png" class="col mb-2" alt="...">
                   </a>
                 </div>
               </div>
-              <div class="col">
+              <div class="col mb-2" style="min-width:230px;max-width:230px;">
                 <div id="area-card-produtos2" class="card">
                   <h5 class="card-title">ENERGIA</h5>
                   <a href="/produtos/categoria/12">
-                    <img src="https://static.kabum.com.br/conteudo/categorias/ENERGIA_1659439713.png" class="card"
+                    <img src="https://static.kabum.com.br/conteudo/categorias/ENERGIA_1659439713.png" class="col mb-2"
                       alt="...">
                   </a>
                 </div>
               </div>
         </section>
         <br>
-        <h4 id="area-title2"><i class="fas fa-star"></i> MAIS VENDIDOS</h4>
+        <!-- <h4 id="area-title2"><i class="fas fa-star"></i> MAIS VENDIDOS</h4>
         <section id="area-cards" class="col-md-12 mx-auto m-0">
           <div class="row row-cols-1 row-cols-md-3 g-5">
             <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -243,8 +235,8 @@
 
             </div>
         </section>
-        <br>
-        <section id="area-cards">
+        <br> -->
+        <section>
           <img src="https://themes.kabum.com.br/conteudo/ads/banner_footer/1627587927.jpg" class="rounded float-start"
             alt="..." width="32%">
           <img src="https://themes.kabum.com.br/conteudo/ads/banner_footer/1631200350.png" class="rounded float-end"

@@ -20,16 +20,16 @@
 
 <body>
     <%- include("../partials/header.ejs")%>
-        <section id="area-login">
-            <br><br>
-            <main>
-                <section id="area-cards" class="col-md-4 mx-auto m-0">
+    <main>
+        <section>
+            <br>
+                <section class="col-md-4 mx-auto m-0">
                     <div id="titulo" class="col-md-12">
-                        <br><br>
+                        <br>
                         <h3 id="titulo-pagina">Login</h3>
                     </div>
                     <div id="login-area">
-                        <div class="container">
+                        <div id="area-login" class="container">
                             <div class="row">
                                 <div class="col-md-10">
                                     <% if(typeof error !="undefined" ) { %>
@@ -64,9 +64,10 @@
                             </div>
                         </div>
                 </section>
+
+            </section>
             </main>
             <br><br>
-        </section>
         <%- include('../partials/footer') %>
 </body>
 
