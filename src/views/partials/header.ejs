@@ -15,8 +15,12 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                     <a class="nav-item nav-link" id="home-menu" href="/">Home</span></a>
                     <a class="nav-item nav-link" id="about-menu" href="/sobre">Sobre</a>
-                    <a class="nav-item nav-link" id="services-menu" href="#">Serviços</a>
-                    <a class="nav-item nav-link" id="team-menu" href="/home/editar">Cadastro</a>
+                    <!-- <a class="nav-item nav-link" id="services-menu" href="#">Serviços</a> -->
+                    <% if(typeof locals.user !== 'undefined') { %>
+                        <a class="nav-item nav-link" id="team-menu" href="/home/<%= locals.user.id %>/editar">Perfil</a>
+                        <% } else{ %>
+                        <a class="nav-item nav-link" id="team-menu" href="/home/cadastrar">Cadastro</a>
+                    <% } %>
                     <a class="nav-item nav-link" id="portfolio-menu" href="/produtos/pedidos">Carrinho</a>
                     <% if(locals.user == undefined) { %>
                         <a class="nav-item nav-link" id="contact-menu" href="/login">Login</a>

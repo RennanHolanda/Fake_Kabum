@@ -1,4 +1,4 @@
-const { User, Admin, Product, Category} = require("../models");
+const { User, Admin, Product, Categoria} = require("../models");
 const bcrypt = require("bcryptjs");
 
 const HomeController = {
